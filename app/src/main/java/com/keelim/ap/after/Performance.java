@@ -1,30 +1,16 @@
-package com.keelim.test.after;
+package com.keelim.ap.after;
 
 import android.os.IBinder;
 import android.view.WindowManager;
-import com.keelim.test.*;
+import com.keelim.ap.*;
 
 import java.util.EnumMap;
 import java.util.Map;
 
-import static android.view.WindowManager.LayoutParams.FIRST_APPLICATION_WINDOW;
-import static android.view.WindowManager.LayoutParams.LAST_APPLICATION_WINDOW;
-import static android.view.WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
-import static android.view.WindowManager.LayoutParams.TYPE_APPLICATION_STARTING;
-import static android.view.WindowManager.LayoutParams.TYPE_INPUT_METHOD;
-import static android.view.WindowManager.LayoutParams.TYPE_TOAST;
-import static android.view.WindowManager.LayoutParams.TYPE_WALLPAPER;
-import static com.keelim.test.WindowManager.LayoutParams.FIRST_APPLICATION_WINDOW;
-import static com.keelim.test.WindowManager.LayoutParams.LAST_APPLICATION_WINDOW;
-import static com.keelim.test.WindowManager.LayoutParams.PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY;
-import static com.keelim.test.WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
-import static com.keelim.test.WindowManager.LayoutParams.TYPE_APPLICATION_STARTING;
-import static com.keelim.test.WindowManager.LayoutParams.TYPE_DREAM;
-import static com.keelim.test.WindowManager.LayoutParams.TYPE_INPUT_METHOD;
-import static com.keelim.test.WindowManager.LayoutParams.TYPE_QS_DIALOG;
-import static com.keelim.test.WindowManager.LayoutParams.TYPE_TOAST;
-import static com.keelim.test.WindowManager.LayoutParams.TYPE_VOICE_INTERACTION;
-import static com.keelim.test.WindowManager.LayoutParams.TYPE_WALLPAPER;
+import static com.keelim.ap.WindowManager.LayoutParams.PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY;
+import static com.keelim.ap.WindowManager.LayoutParams.TYPE_DREAM;
+import static com.keelim.ap.WindowManager.LayoutParams.TYPE_QS_DIALOG;
+import static com.keelim.ap.WindowManager.LayoutParams.TYPE_VOICE_INTERACTION;
 
 
 public class Performance {
