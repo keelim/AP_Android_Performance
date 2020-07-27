@@ -5,12 +5,21 @@ import android.view.WindowManager;
 import com.keelim.ap.*;
 
 import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
 
+import static android.view.WindowManager.LayoutParams.FIRST_APPLICATION_WINDOW;
+import static android.view.WindowManager.LayoutParams.LAST_APPLICATION_WINDOW;
+import static android.view.WindowManager.LayoutParams.TYPE_INPUT_METHOD;
 import static com.keelim.ap.WindowManager.LayoutParams.PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY;
+import static com.keelim.ap.WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
+import static com.keelim.ap.WindowManager.LayoutParams.TYPE_APPLICATION_STARTING;
 import static com.keelim.ap.WindowManager.LayoutParams.TYPE_DREAM;
 import static com.keelim.ap.WindowManager.LayoutParams.TYPE_QS_DIALOG;
+import static com.keelim.ap.WindowManager.LayoutParams.TYPE_TOAST;
 import static com.keelim.ap.WindowManager.LayoutParams.TYPE_VOICE_INTERACTION;
+import static com.keelim.ap.WindowManager.LayoutParams.TYPE_WALLPAPER;
 
 
 public class Performance {
@@ -423,8 +432,140 @@ public class Performance {
         return 0;
     }
 
-    // HASH MAP , ENUM MAP을 만드는 건 좋은데 어느 시점에서 생성을 하고 데이터를 넣어야 하는가?
+    public int test5() { // EnumMap @AfterEnum
+        final String TAG_WM = "WindowManager";
+        final WindowState parentWindow;
+        final DisplayContent displayContent;
+        final WindowManager.LayoutParams attrs;
+        final int type = attrs.type;
+        final WindowToken atoken;
+        final boolean hasParent = parentWindow != null;
+        final int rootType = hasParent ? parentWindow.mAttrs.type : type;
+        final WindowToken token = displayContent.getWindowToken(hasParent ? parentWindow.mAttrs.token : attrs.token);
 
+        /////////////////////////////////////////////////////////////////////////////////////////////
+        final Map<Integer, Function<WindowToken, Integer>> map = new HashMap<>();
 
+        Function<WindowToken, Integer> func = (tokener) -> {
+            if (tokener == null) {
+                Slog.w(TAG_WM, "s2" + attrs.token + "s0");
+            } else {
+
+            }
+            return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+        };
+        map.put(WindowEnum.TYPE_INPUT_METHOD.value, func);
+
+        map.get(rootType).apply(token);
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        if (token == null) {
+            if (rootType >= FIRST_APPLICATION_WINDOW && rootType <= LAST_APPLICATION_WINDOW) {
+                Slog.w(TAG_WM, "s1" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+            if (rootType == TYPE_INPUT_METHOD) {
+                Slog.w(TAG_WM, "s2" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+            if (rootType == TYPE_VOICE_INTERACTION) {
+                Slog.w(TAG_WM, "s3" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+            if (rootType == TYPE_WALLPAPER) {
+                Slog.w(TAG_WM, "s4" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+            if (rootType == TYPE_DREAM) {
+                Slog.w(TAG_WM, "s5" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+            if (rootType == TYPE_QS_DIALOG) {
+                Slog.w(TAG_WM, "s6" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+            if (rootType == TYPE_ACCESSIBILITY_OVERLAY) {
+                Slog.w(TAG_WM, "s7" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+
+            if (type == TYPE_TOAST) {
+                // Apps targeting SDK above N MR1 cannot arbitrary add toast windows.
+                if (doesAddToastWindowRequireToken(attrs.packageName, callingUid, parentWindow)) {
+                    Slog.w(TAG_WM, "s15" + attrs.token + "s0");
+                    return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+                }
+            }
+
+            final IBinder binder = attrs.token != null ? attrs.token : client.asBinder();
+            final boolean isRoundedCornerOverlay = (attrs.privateFlags & PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY) != 0;
+            token = new WindowToken(this, binder, type, false, displayContent, session.mCanAddInternalSystemWindow, isRoundedCornerOverlay);
+
+        } else if (rootType >= FIRST_APPLICATION_WINDOW && rootType <= LAST_APPLICATION_WINDOW) {
+            atoken = token.asAppWindowToken();
+//////////////////////////////////////////////////////////////////////////////////////// todo 건들지 않기
+            if (atoken == null) {
+                Slog.w(TAG_WM, "Attempted to add window with non-application token " + token + "s0");
+                return WindowManagerGlobal.ADD_NOT_APP_TOKEN;
+
+            } else if (atoken.removed) {
+                Slog.w(TAG_WM, "Attempted to add window with exiting application token " + token + "s0");
+                return WindowManagerGlobal.ADD_APP_EXITING;
+
+            } else if (type == TYPE_APPLICATION_STARTING && atoken.startingWindow != null) {
+                Slog.w(TAG_WM, "Attempted to add starting window to token with already existing" + " starting window");
+                return WindowManagerGlobal.ADD_DUPLICATE_ADD;
+
+            }
+
+        } else if (rootType == TYPE_INPUT_METHOD) {
+            if (token.windowType != TYPE_INPUT_METHOD) {
+                Slog.w(TAG_WM, "s8" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+        } else if (rootType == TYPE_VOICE_INTERACTION) {
+            if (token.windowType != TYPE_VOICE_INTERACTION) {
+                Slog.w(TAG_WM, "s9" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+        } else if (rootType == TYPE_WALLPAPER) {
+            if (token.windowType != TYPE_WALLPAPER) {
+                Slog.w(TAG_WM, "s10" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+        } else if (rootType == TYPE_DREAM) {
+            if (token.windowType != TYPE_DREAM) {
+                Slog.w(TAG_WM, "s11" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+        } else if (rootType == TYPE_ACCESSIBILITY_OVERLAY) {
+            if (token.windowType != TYPE_ACCESSIBILITY_OVERLAY) {
+                Slog.w(TAG_WM, "s12" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+        } else if (type == TYPE_TOAST) {
+            // Apps targeting SDK above N MR1 cannot arbitrary add toast windows.
+            addToastWindowRequiresToken = doesAddToastWindowRequireToken(attrs.packageName, callingUid, parentWindow);
+            if (addToastWindowRequiresToken && token.windowType != TYPE_TOAST) {
+                Slog.w(TAG_WM, "s13" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+        } else if (type == TYPE_QS_DIALOG) {
+            if (token.windowType != TYPE_QS_DIALOG) {
+                Slog.w(TAG_WM, "s14" + attrs.token + "s0");
+                return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
+            }
+            
+            
+        } else if (token.asAppWindowToken() != null) { ////////// todo 건들지 않기
+            Slog.w(TAG_WM, "Non-null appWindowToken for system window of rootType=" + rootType);
+            // It is not valid to use an app token with other system types; we will
+            // instead make a new token for it (as if null had been passed in for the token).
+            attrs.token = null;
+            token = new WindowToken(this, client.asBinder(), type, false, displayContent, session.mCanAddInternalSystemWindow);
+        }
+
+        return 0;
+    }
 }
 
