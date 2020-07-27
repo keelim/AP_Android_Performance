@@ -32,15 +32,9 @@ public class EnumTest { // Stream 을 활용한 정리를 할 것
     public static void main(String[] args) {
         EnumTest enumTest = new EnumTest();
         enumTest.init();
-
         Map<Integer, Function<String, Integer>> map = enumTest.getMap();
-
 
         int a = map.get(2).apply("hello it`s me");
         System.out.println("받은 값은"+a);
-
-
     }
-
-
 }
