@@ -44,6 +44,7 @@ public class Performance {
     // - /*## <"Attempted to add a toast window with bad token "> -> s13*/
     // - /*## <"Attempted to add QS dialog window with bad token "> -> s14*/
     // -/*## <"Attempted to add a toast window with unknown token "> -> s15*/s
+    // 만일 구현을 한다고 
     private Map<Integer, Function<WindowToken, Integer>> map;
 
     private void mapinit() {
@@ -125,7 +126,7 @@ public class Performance {
         final int rootType = hasParent ? parentWindow.mAttrs.type : type;
         final WindowToken token = displayContent.getWindowToken(hasParent ? parentWindow.mAttrs.token : attrs.token);
 
-        if (token == null) {
+        if (token == null) { //확실히 구현은 짧아진다
             if (rootType >= FIRST_APPLICATION_WINDOW && rootType <= LAST_APPLICATION_WINDOW) {
                 Slog.w(TAG_WM, "s1" + attrs.token + "s0");
                 return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
