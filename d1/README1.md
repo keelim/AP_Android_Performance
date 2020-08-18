@@ -25,4 +25,8 @@
     - (1)copyFrom with clone 실패 -> final error
     - (2)copyFrom with clone 실패-> contructor error 
     - (3)copyFrom compile and build 성공 -> 포팅 작업 중
+
+- - -
+1. 테스팅 어플리케이션
     
+    - [테스트 어플리케이션](https://github.com/cnuaosp/AOSPTesting)
