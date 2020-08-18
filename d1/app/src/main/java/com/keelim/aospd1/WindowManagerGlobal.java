@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.keelim.test.after;
+package com.keelim.aospd1;
 
 import android.animation.ValueAnimator;
 import android.annotation.NonNull;
@@ -32,9 +32,14 @@ import android.os.SystemProperties;
 import android.util.AndroidRuntimeException;
 import android.util.ArraySet;
 import android.util.Log;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 
 import com.android.internal.util.FastPrintWriter;
+import com.keelim.aospd1.c1.WindowManager;
 
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
@@ -307,7 +312,7 @@ public final class WindowManagerGlobal {
     }
 
     public void addView(View view, ViewGroup.LayoutParams params,
-            Display display, Window parentWindow) {
+                        Display display, Window parentWindow) {
         if (view == null) {
             throw new IllegalArgumentException("view must not be null");
         }

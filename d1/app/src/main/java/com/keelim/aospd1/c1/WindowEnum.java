@@ -1,4 +1,4 @@
-package com.keelim.test.after;
+package com.keelim.aospd1.c1;
 
 import java.util.EnumMap;
 import java.util.Map;

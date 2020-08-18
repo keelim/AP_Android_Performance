@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.server.wm;
+package com.keelim.aospd1.c1;
 
 import static android.Manifest.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS;
 import static android.Manifest.permission.INTERNAL_SYSTEM_WINDOW;
@@ -262,6 +262,7 @@ import com.android.server.policy.WindowManagerPolicy;
 import com.android.server.policy.WindowManagerPolicy.ScreenOffListener;
 import com.android.server.power.ShutdownThread;
 import com.android.server.utils.PriorityDump;
+import com.keelim.aospd1.WindowManagerGlobal;
 import com.keelim.test.after.WindowState;
 import com.keelim.test.after.WindowToken;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.keelim.test.after;
+package com.keelim.aospd1.c1;
 
 import static android.app.ActivityTaskManager.INVALID_STACK_ID;
 import static android.app.AppOpsManager.MODE_ALLOWED;

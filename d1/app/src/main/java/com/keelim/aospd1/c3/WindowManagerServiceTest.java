@@ -1,4 +1,4 @@
-package com.keelim.test.unit1;
+package com.keelim.aospd1.c3;
 
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
@@ -20,6 +20,8 @@ import android.view.Choreographer;
 import android.view.DisplayCutout;
 import android.view.WindowManager;
 
+import com.keelim.aospd1.R;
+import com.keelim.aospd1.c4.WindowManagerPolicy;
 import com.keelim.test.after.WindowManagerGlobal;
 import com.keelim.test.after.WindowState;
 import com.keelim.test.after.WindowToken;

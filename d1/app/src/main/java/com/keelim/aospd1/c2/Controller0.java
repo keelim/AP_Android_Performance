@@ -1,4 +1,4 @@
-package d1.c2;
+package com.keelim.aospd1.c2;
 
 import java.util.Random;
 

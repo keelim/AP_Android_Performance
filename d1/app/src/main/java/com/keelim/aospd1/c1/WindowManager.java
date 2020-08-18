@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.keelim.test.after;
+package com.keelim.aospd1.c1;
 
 import static android.content.pm.ActivityInfo.COLOR_MODE_DEFAULT;
 import static android.view.WindowLayoutParamsProto.ALPHA;
