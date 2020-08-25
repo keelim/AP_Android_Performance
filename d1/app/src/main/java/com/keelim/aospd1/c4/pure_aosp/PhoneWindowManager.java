@@ -232,9 +232,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Function;
+
 
 /**
  * WindowManagerPolicy implementation for the Android phone UI.  This
@@ -658,7 +657,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
 
     private class PolicyHandler extends Handler {
-        private HashMap<Integer, Consumer<Message>> hashMap;
+        private final HashMap<Integer, Consumer<Message>> hashMap;
 
         public PolicyHandler() {
             hashMap = new HashMap<>();
@@ -778,7 +777,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
         @Override
         public void handleMessage(Message msg){
-
+            Consumer<Message> consumer = hashMap.get(msg.what);
+            if(consumer!=null) consumer.accept(msg);
         }
 
         /*@Override
