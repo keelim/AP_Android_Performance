@@ -19,7 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b13d4a-5b57-4aa8-acea-20cecc08790f" name="Default Changelist" comment="2020 08 26" />
+    <list default="true" id="29b13d4a-5b57-4aa8-acea-20cecc08790f" name="Default Changelist" comment="WindowManagerService.java">
+      <change afterPath="$PROJECT_DIR$/d1/application/src/main/java/com/keelim/aosp_image_test/displayInfo/Display.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/d1/application/src/main/java/com/keelim/aosp_image_test/displayInfo/DisplayContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/d1/application/src/main/java/com/keelim/aosp_image_test/displayInfo/DisplayInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/d1/application/src/main/java/com/keelim/aosp_image_test/displayInfo/DisplayManagerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/d1/application/src/main/java/com/keelim/aosp_image_test/displayInfo/DisplayWindowSettingsTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/d1/application/src/main/java/com/keelim/aosp_image_test/displayInfo/LogicalDisplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/d1/application/src/main/java/com/keelim/aosp_image_test/displayInfo/PinnedStackController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/d1/application/src/main/java/com/keelim/aosp_image_test/displayInfo/WindowTestsBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AP_Android_Performance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AP_Android_Performance.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1598438622769</updated>
       <workItem from="1598438630497" duration="363000" />
+      <workItem from="1598850004056" duration="4012000" />
     </task>
     <task id="LOCAL-00001" summary="2020 08 26">
       <created>1598438821193</created>
@@ -64,7 +76,28 @@
       <option name="project" value="LOCAL" />
       <updated>1598438821193</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="PhoneWindowManager.java">
+      <created>1598851020058</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598851020058</updated>
+    </task>
+    <task id="LOCAL-00003" summary="WindowManagerService.java">
+      <created>1598851128363</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1598851128363</updated>
+    </task>
+    <task id="LOCAL-00004" summary="WindowManagerService.java">
+      <created>1598852836819</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1598852836819</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -77,19 +110,34 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2020 08 26" />
-    <option name="LAST_COMMIT_MESSAGE" value="2020 08 26" />
+    <MESSAGE value="PhoneWindowManager.java" />
+    <MESSAGE value="WindowManagerService.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="WindowManagerService.java" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="0" key="#Project_Structure" timestamp="1598438687116">
+    <state x="0" y="0" key="#Project_Structure" timestamp="1598851357192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="0" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1598438687116" />
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1598438999802">
+    <state x="0" y="0" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1598851357192" />
+    <state x="718" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1598851405927">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598438999802" />
+    <state x="718" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1598851405927" />
+    <state x="312" y="0" key="SettingsEditor" timestamp="1598850323640">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="312" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598850323640" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1598852852609">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598852852609" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1598850021166">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598850021166" />
   </component>
 </project>
