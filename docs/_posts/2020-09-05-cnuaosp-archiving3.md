@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CNU AOSP 안드로이드 구글 픽셀 순정 이미지 플래싱"
+title: "CNU AOSP 아카이빙2"
 date: 2020-08-30 00:00:01
 author: Keelim
 categories: AOSP
