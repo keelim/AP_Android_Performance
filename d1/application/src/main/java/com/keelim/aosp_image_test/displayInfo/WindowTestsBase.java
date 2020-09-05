@@ -68,6 +68,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.LinkedList;
 
+
 /**
  * Common base class for window manager unit test classes.
  *
@@ -455,4 +456,6 @@ class WindowTestsBase {
         displayInfo.ownerUid = SYSTEM_UID;
         return createNewDisplay(displayInfo);
     }
+
+
 }
