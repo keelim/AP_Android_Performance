@@ -1423,14 +1423,12 @@ public class WindowManagerService extends IWindowManager.Stub
                     return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
                 }
 
-                // todo /////////////////////////////////////////////////////////////////////////
                 BiConsumer<WindowToken, LayoutParams> bi = test.hashMap.get(rootType);
                 if(bi!=null){
                     bi.accept(token, attrs);
                     return WindowManagerGlobal.ADD_BAD_APP_TOKEN;
                 }
 
-                // todo ////////////////////////////////////////////////////////////////////
                 if (type == TYPE_TOAST) {
                     // Apps targeting SDK above N MR1 cannot arbitrary add toast windows.
                     if (doesAddToastWindowRequireToken(attrs.packageName, callingUid,
