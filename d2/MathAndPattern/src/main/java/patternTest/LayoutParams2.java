@@ -1,7 +1,8 @@
 package patternTest;
 
-public class LayoutParams2 {
+import org.jetbrains.annotations.NotNull;
 
+public class LayoutParams2 {
     public static final int MATCH_PARENT = 1;
     public static int type = 0;
     public static int format = 0;
@@ -14,11 +15,11 @@ public class LayoutParams2 {
     public static class Builder extends SC {
 
         //		public static final int MATCH_PARENT = 1;
-        public static int type = 2;
-        public static int format = 0;
-        public static int flags = 3;
-        public static int x = 4;
-        public static int y = 5;
+        public int type = 2;
+        public int format = 0;
+        public int flags = 3;
+        public int x = 4;
+        public int y = 5;
         // int width, height는 sc1안에 있다.
 //		public static final int TYPE_APPLICATION = 2;
 
@@ -62,7 +63,7 @@ public class LayoutParams2 {
 
     }
 
-    public LayoutParams2(Builder builder) {
+    public LayoutParams2(@NotNull Builder builder) {
         type = builder.type;
         format = builder.format;
         flags = builder.flags;

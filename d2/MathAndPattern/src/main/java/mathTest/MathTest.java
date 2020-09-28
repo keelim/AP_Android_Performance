@@ -3,19 +3,20 @@ package mathTest;
 public class MathTest {
     public static void main(String[] args) {
 
-//		System.out.print("Math �޼ҵ� :	");
-//		mathclass1 t1 = new mathclass1();
-//		perfom1(t1);
-        System.out.print("���׿����� :	");
-        Math2 t2 = new Math2();
-        perfom2(t2);
-//		System.out.print("ȥ���� ��� :	");
-//		mathclass3 t3 = new mathclass3();
-//		perfom3(t3);
+        System.out.println("Math 1 Test");
+        MathTemp1 t1 = new MathTemp1();
+        perfom1(t1);
 
+        System.out.println("Math 2 Test");
+        MathTemp2 t2 = new MathTemp2();
+        perfom2(t2);
+
+        System.out.println("Math 3 Test");
+        MathTemp3 t3 = new MathTemp3();
+        perfom3(t3);
     }
 
-    private static void perfom1(Math m1) {
+    private static void perfom1(MathTemp1 m1) {
 
         long[] testcase = new long[10];
 
@@ -34,10 +35,11 @@ public class MathTest {
         for (final long l : testcase) {
             sum += l;
         }
+
         System.out.printf("avg : %d\n", sum / testcase.length);
     }
 
-    private static void perfom2(Math2 m2) {
+    private static void perfom2(MathTemp2 m2) {
 
         long[] testcase = new long[10];
 
@@ -60,7 +62,7 @@ public class MathTest {
 
     }
 
-    private static void perfom3(Math3 m3) {
+    private static void perfom3(MathTemp3 m3) {
 
         long[] testcase = new long[10];
 
