@@ -20,7 +20,6 @@ public class MathTemp1 {
     }
 
     public void temp2() {
-
         a1 = Math.max(ContentFrame.left, Frame.left);
         a2 = Math.max(ContentFrame.top, Frame.top);
         a3 = Math.min(ContentFrame.right, Frame.right);

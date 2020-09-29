@@ -8,7 +8,6 @@ public class LayoutParams extends SC {
     public static int flags = 3;
     public static int x = 4;
     public static int y = 5;
-    // int width, height는 sc1안에 있다.
 
     public static final int TYPE_APPLICATION = 2;
 
