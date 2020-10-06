@@ -39,5 +39,4 @@ public class MathTemp2 {
         c4 = (StableFrame.bottom < Frame.bottom ? StableFrame.bottom : Frame.bottom);
     }
 
-
 }
