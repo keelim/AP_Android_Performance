@@ -22,7 +22,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
-        }
+        } 1
 
         long start, finish, performance;
         controller0 = new Controller0();
